@@ -3,10 +3,13 @@ import React, { useEffect } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { ICards } from '../../interfaces/ICards';
 import { Loader } from '../../components/Loader';
+import { Navbar } from '../../components/Navbar';
 import './styles.css';
+import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
-  const { logout, token, user } = useAuth();
+  const { token, user } = useAuth();
+  const navigate = useNavigate();
   const [loading, setLoading] = React.useState(true);
   const [cards, setCards] = React.useState<Array<ICards>>([]);
 
@@ -27,43 +30,23 @@ const Home: React.FC = () => {
       });
   }, []);
 
-  const handleLogout = async () => {
-    setLoading(true);
-    await axios.post(
-      'http://localhost:3333/api/auth/logout',
-      {},
-      {
-        headers: {
-          Authorization: 'Bearer ' + token,
-        },
-      }
-    );
-
-    logout();
+  const handleAddButtonClick = () => {
+    navigate('/cards/create');
   };
 
   return (
     <>
       {loading ? <Loader /> : null}
-      <nav>
-        <div className="nav-wrapper">
-          <span>Bem vindo, {user.name}</span>
-          <ul className="right hide-on-med-and-down">
-            <li>
-              <a href="#!" onClick={handleLogout}>
-                <span>Sair</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <Navbar />
       <div className="main">
         <div className="cards-wrapper">
           <table className="cards">
             <thead>
               <tr>
                 <th>
-                  <button className="btn-add">Adicionar Carta</button>
+                  <button className="btn-add" onClick={handleAddButtonClick}>
+                    Adicionar Carta
+                  </button>
                 </th>
                 <th>Raridade</th>
                 <th>Tipo</th>
@@ -89,7 +72,7 @@ const Home: React.FC = () => {
                     <button className="btn-edit">Editar</button>
                     <button
                       className="btn-delete"
-                      onClick={() => handleLogout()}
+                      onClick={() => console.log('delete')}
                     >
                       Excluir
                     </button>

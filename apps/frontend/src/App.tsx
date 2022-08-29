@@ -1,9 +1,10 @@
 import { Routes, Route, useRoutes } from 'react-router-dom';
 import { Login } from './views/Login/index';
+import { Register } from './views/Register';
 import { Home } from './views/Home/index';
+import { CreateCard } from './views/Cards/Create/index';
 import { ProtectedRoute } from './components/ProtectedRoute/index';
 import './App.css';
-import { Register } from './views/Register';
 
 function App() {
   return (
@@ -18,6 +19,14 @@ function App() {
       />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route
+        path="/cards/create"
+        element={
+          <ProtectedRoute>
+            <CreateCard />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }
