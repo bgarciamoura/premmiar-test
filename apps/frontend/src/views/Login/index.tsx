@@ -8,7 +8,7 @@ import './styles.css';
 const Login = () => {
   const navigate = useNavigate();
   const { login, user } = useAuth();
-  const [email, setEmail] = React.useState('teste@teste.com.br');
+  const [email, setEmail] = React.useState('bgarciamoura@gmail.com');
   const [password, setPassword] = React.useState('123456');
   const [loading, setLoading] = React.useState(false);
 
@@ -34,9 +34,9 @@ const Login = () => {
         .post('http://localhost:3333/api/auth/login', user)
         .then((response) => {
           if (response.status === 200) {
-            const { token, userId } = response.data;
+            const { token, userId, name } = response.data;
 
-            login(token, userId).then(() => {
+            login({ userId, name }, token).then(() => {
               navigate('/');
             });
           }
