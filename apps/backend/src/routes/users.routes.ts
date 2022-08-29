@@ -39,7 +39,12 @@ usersRoutes.post('/', async (req, res) => {
     };
 
     const result = await userService.create(userToSave);
-    return res.json({ result: result ? 'User created' : 'User not created' });
+
+    if (result) {
+      return res.status(201).json({ message: 'User created' });
+    }
+
+    return res.status(400).json({ message: 'User not created' });
   } catch (error) {
     console.log(error);
   }

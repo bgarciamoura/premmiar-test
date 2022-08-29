@@ -1,0 +1,129 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.card-background {
+  background-image: url('../../assets/magic-bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #030303;
+
+  width: 350px;
+  max-width: 350px;
+
+  box-shadow: 10px 10px 10px rgba(146, 11, 131, 0.5);
+  z-index: 5;
+}
+
+.card-title {
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+
+form {
+  width: 100%;
+  padding: 2em;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-group label {
+  font-size: 0.8em;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.form-group input {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.6em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+  outline: none;
+  color: #030303;
+
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.form-group input:focus {
+  border: 1px solid #00aaff;
+}
+
+.btn-submit {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.6em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: #00aaff;
+  cursor: pointer;
+  transition: all ease-in-out 0.25s;
+  color: #fff;
+  width: 100%;
+
+  text-transform: uppercase;
+}
+
+.btn-submit:hover {
+  background-color: #00aaff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.register-field {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+
+  margin-top: 1.5em;
+
+  font-size: 0.8em;
+}
+
+.register-field a {
+  margin-left: 0.4em;
+  color: #00aaff;
+  text-decoration: underline;
+  cursor: pointer;
+}
