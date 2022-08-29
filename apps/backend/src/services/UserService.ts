@@ -38,7 +38,6 @@ class UserService {
     email: string,
     password: string
   ): Promise<User | undefined> {
-    console.log({ email, password });
     const user = await this.repository.getByEmail(email);
     if (!user) {
       return;

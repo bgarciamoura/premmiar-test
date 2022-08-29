@@ -10,6 +10,7 @@ const useLocalStorage = (key: string, initialValue: any) => {
       return initialValue;
     }
   });
+
   const setValue = (value: any) => {
     try {
       const valueToStore =

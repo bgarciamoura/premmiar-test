@@ -27,7 +27,7 @@ authRoutes.post('/login', async (req, res) => {
 
     const token = await authService.generateToken(user.id);
 
-    return res.json({ token });
+    return res.json({ token, userId: user.id });
   } else {
     return res.status(500).json({ error: 'AuthService not found' });
   }

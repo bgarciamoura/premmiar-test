@@ -1,15 +1,15 @@
 import React, { createContext, useMemo } from 'react';
-import { useLocalStorage } from './useLocalStorageHook';
+import { useLocalStorage } from '../hooks/useLocalStorageHook';
 
 interface AuthContextProps {
-  user: any;
+  user: string;
   token: string;
   login(email: string, password: string): Promise<boolean>;
   logout(): void;
 }
 
 const AuthContext = createContext<AuthContextProps>({
-  user: null,
+  user: '',
   token: '',
   login: () => Promise.resolve(false),
   logout: () => {},
@@ -19,8 +19,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useLocalStorage('user', null);
   const [token, setToken] = useLocalStorage('token', null);
 
-  const login = async (user: any, token: any) => {
-    console.log('login', user, token);
+  const login = async (user: string, token: any) => {
     setUser(user);
     setToken(token);
 
@@ -45,6 +44,4 @@ const AuthProvider = ({ children }) => {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
-const useAuth = () => React.useContext(AuthContext);
-
-export { AuthContext, AuthProvider, useAuth };
+export { AuthProvider, AuthContext };
