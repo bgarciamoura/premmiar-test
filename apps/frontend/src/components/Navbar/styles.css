@@ -15,6 +15,10 @@ nav .nav-wrapper > a {
   cursor: pointer;
 }
 
+nav .nav-wrapper > span {
+  font-size: 1.2em;
+}
+
 nav .nav-wrapper ul {
   display: flex;
   flex-direction: row;
