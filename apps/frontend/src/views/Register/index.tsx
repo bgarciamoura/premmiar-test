@@ -35,7 +35,7 @@ const Register = () => {
       axios
         .post('http://localhost:3333/api/users', user)
         .then((response) => {
-          if (response.statusText === 'OK') {
+          if (response.status === 201) {
             alert('Usuário criado com sucesso, faça login para usar o sistema');
             navigate('/login');
           }
