@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Loader } from '../../components/Loader';
 import { useAuth } from '../../hooks/useAuth';
+import './styles.css';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ const Register = () => {
   };
 
   return (
-    <div className="main">
+    <div className="register-main">
       {loading ? <Loader /> : null}
       <div className="card-background"></div>
       <div className="card">

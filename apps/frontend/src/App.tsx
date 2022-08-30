@@ -2,7 +2,7 @@ import { Routes, Route, useRoutes } from 'react-router-dom';
 import { Login } from './views/Login/index';
 import { Register } from './views/Register';
 import { Home } from './views/Home/index';
-import { CreateCard } from './views/Cards/Create/index';
+import { Card } from './views/Cards/index';
 import { ProtectedRoute } from './components/ProtectedRoute/index';
 import './App.css';
 
@@ -19,14 +19,24 @@ function App() {
       />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route
-        path="/cards/create"
-        element={
-          <ProtectedRoute>
-            <CreateCard />
-          </ProtectedRoute>
-        }
-      />
+      <Route path="/cards">
+        <Route
+          index
+          element={
+            <ProtectedRoute>
+              <Card />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path=":cardId"
+          element={
+            <ProtectedRoute>
+              <Card />
+            </ProtectedRoute>
+          }
+        />
+      </Route>
     </Routes>
   );
 }

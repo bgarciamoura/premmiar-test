@@ -54,7 +54,7 @@ const Login = () => {
   };
 
   return (
-    <div className="main">
+    <div className="login-main">
       {loading ? <Loader /> : null}
       <div className="card-background"></div>
       <div className="card">

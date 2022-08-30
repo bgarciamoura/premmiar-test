@@ -31,7 +31,32 @@ const Home: React.FC = () => {
   }, []);
 
   const handleAddButtonClick = () => {
-    navigate('/cards/create');
+    navigate('/cards');
+  };
+
+  const handleDeleteButtonClick = (cardId: string) => {
+    setLoading(true);
+    axios
+      .delete(`http://localhost:3333/api/cards/${cardId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          const newCards = cards.filter((card) => card.id !== cardId);
+          setCards([...newCards]);
+          setLoading(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  };
+
+  const handleEditButtonClick = (cardId: string) => {
+    navigate(`/cards/${cardId}`);
   };
 
   return (
@@ -69,10 +94,15 @@ const Home: React.FC = () => {
                     {new Date(card.createdAt).toLocaleDateString()}
                   </td>
                   <td>
-                    <button className="btn-edit">Editar</button>
+                    <button
+                      className="btn-edit"
+                      onClick={() => handleEditButtonClick(card.id)}
+                    >
+                      Editar
+                    </button>
                     <button
                       className="btn-delete"
-                      onClick={() => console.log('delete')}
+                      onClick={() => handleDeleteButtonClick(card.id)}
                     >
                       Excluir
                     </button>
