@@ -38,6 +38,7 @@ const Register = () => {
           if (response.status === 201) {
             alert('Usuário criado com sucesso, faça login para usar o sistema');
             navigate('/login');
+            setLoading(false);
           }
         })
         .catch((error) => {
@@ -49,6 +50,7 @@ const Register = () => {
         });
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
 
