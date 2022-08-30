@@ -1,77 +1,65 @@
-# Turborepo starter
+# PREMMIAR - Frontend
 
-This is an official Yarn v1 starter turborepo.
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:bgarciamoura@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bgarciamoura/)
 
-## What's inside?
+⭐️ Please, star me on GitHub — it helps!
 
-This turborepo uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package manager. It includes the following packages/apps:
+## Table of contents
 
-### Apps and Packages
+- [PREMMIAR - Frontend](#premmiar---frontend)
+	- [Table of contents](#table-of-contents)
+	- [Introduction](#introduction)
+	- [Technologies](#technologies)
+	- [Setup and Running](#setup-and-running)
+	- [Thanks](#thanks)
 
-- `docs`: a [Next.js](https://nextjs.org) app
-- `web`: another [Next.js](https://nextjs.org) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+## Introduction
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+This is a simple CRUD application for Premmiar job. In this project i've been using turborepo as my monorepo tool, so i can develop my backend and frontend in one repository.
 
-### Utilities
+## Technologies
 
-This turborepo has some additional tools already setup for you:
+Project is created with:
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+- [Nodejs](https://nodejs.org/)
+- [Reactjs](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Turborepo](https://turborepo.org/)
+- [Expressjs](https://expressjs.com/)
+- [Prisma](https://www.prisma.io/)
+- [Vite](https://vitejs.dev/)
+- [VsCode](https://code.visualstudio.com/)
+- [Markdown](https://www.markdownguide.org/)
 
-## Setup
+## Setup and Running
 
-This repository is used in the `npx create-turbo` command, and selected when choosing which package manager you wish to use with your monorepo (Yarn).
+To run this project you have to install the dependencies, initialize the prisma client and the database then, run the project. To do that you have to run the following commands:
 
-### Build
+The first thing is to install the dependencies:
 
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-yarn run build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-yarn run dev
+```bash:
+yarn install
 ```
 
-### Remote Caching
+The second thing is to initialize the prisma client and the database, first go to backend folder, in terminal, and run prisma generate command:
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+```bash:
+cd apps/backend && yarn prisma generate
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+Here's the output example:
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
+![Prisma command](./prisma_generate.png)
 
+The third thing is to run the project, in terminal, and run the server command:
+
+```bash:
+cd ../.. && yarn dev
 ```
-npx turbo link
-```
 
-## Useful Links
+The turborepo is gonna run the server in the background, so you can see the output in the terminal and the frontend in the browser. The backend is running in port 3333 and the frontend is running in port 5173.
 
-Learn more about the power of Turborepo:
+## Thanks
 
-- [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
-- [Caching](https://turborepo.org/docs/core-concepts/caching)
-- [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching)
-- [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
-- [Configuration Options](https://turborepo.org/docs/reference/configuration)
-- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
+It was a huge pleasure to participate of the [Premmiar](https://premmiar.com.br/) recruitment process for the frontend position. I really hope you all enjoy my solution. Thanks for the opportunity!
